@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //cach 3: dung class
+        class student {
+            constructor(id, name, age,) {
+                this.id = id;
+                this.name = name;
+                this.age = age;
+                
+
+            }
+            write = function() {
+                console.log("writing...");
+            }
+            sign = function() {
+                console.log("signing...");
+            }
+        }
+        let vinhloc = new student(1, "vinhloc", "17");
+        console.log("loc's student info is: ");
+        console.log(vinhloc);
+        console.log("loc's age is: " + vinhloc.age);
+        console.log("loc's name is: " + vinhloc.name);
+        console.log("loc say: " + vinhloc.sayhello());
+    </script>
+</body>
+</html>

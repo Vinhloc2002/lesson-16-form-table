@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // cach 1: tao thu cong
+        let Pen blackPinkPen = {
+            id = 1
+            color: "Black Red",
+            model: "US"
+        };
+        //cach 2: dung ham
+        let Pen = function(id, color, model) {
+            this.id = id; 
+            this.color = color;
+            this.model = model;
+
+            this.write = function() {
+                console.log("writing...");
+            }
+            this.sign = function() {
+                console.log("signing...");
+            }
+        }
+        let blackPinkPen = new Pen(1, "black pink", "VN");
+        console.log(("loc's pen info is: "));
+        console.log(blackPinkPen);
+        
+        //cach 3: dung class
+        class pencil {
+            constructor(id, color, model) {
+                this.id = id;
+                this.color = color;
+                this.model = model;
+
+            }
+            write = function() {
+                console.log("writing...");
+            }
+            sign = function() {
+                console.log("signing...");
+            }
+        }
+        let pinkPencil = new Pencil(3, "Pink", "VN");
+        console.log("loc's pencil info is: ");
+        console.log(pinkyPencli);
+    </script>
+</body>
+</html>

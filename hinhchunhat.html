@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Rectangle {
+        constructor(width, height) {
+          this.width = width;
+          this.height = height;
+        }
+
+        get area() {
+          return this.width * this.height;
+        }
+
+        get perimeter() {
+          return 2 * (this.width + this.height);
+        }
+
+        drawRectangle() {
+          const canvas = document.getElementById("myCanvas");
+          const ctx = canvas.getContext("2d");
+          ctx.beginPath();
+          ctx.rect(20, 20, this.width, this.height);
+          ctx.stroke();
+        }
+      }
+      const rectangle = new Rectangle(100, 50);
+      console.log("Diện tích: " + rectangle.area);
+      console.log("Chu vi: " + rectangle.perimeter);
+    </script>
+  </body>
+</html>

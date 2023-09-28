@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Mobile {
+        constructor() {
+          this.battery = 100;
+          this.draftMessage = "";
+          this.inbox = [];
+          this.sentMessages = [];
+          this.poweredOn = false;
+        }
+
+        checkStatus() {
+          return this.poweredOn
+            ? "Điện thoại đang bật."
+            : "Điện thoại đang tắt.";
+        }
+
+        turnOn() {
+          if (!this.poweredOn) {
+            this.poweredOn = true;
+            console.log("Điện thoại đã được bật.");
+          } else {
+            console.log("Điện thoại đã được bật từ trước.");
+          }
+        }
+
+        turnOff() {
+          if (this.poweredOn) {
+            this.poweredOn = false;
+            console.log("Điện thoại đã được tắt.");
+          } else {
+            console.log("Điện thoại đã được tắt từ trước.");
+          }
+        }
+
+        chargeBattery() {
+          if (this.battery < 100) {
+            this.battery += 1;
+            console.log("Điện thoại đang được xạc pin.");
+          } else {
+            console.log("Pin của điện thoại đã đầy.");
+          }
+        }
+
+        composeMessage(message) {
+          if (this.poweredOn) {
+            this.draftMessage = message;
+            console.log(`Đã soạn tin nhắn: "${message}".`);
+          } else {
+            console.log("Vui lòng bật điện thoại để soạn tin nhắn.");
+          }
+        }
+
+        receiveMessage(message) {
+          if (this.poweredOn) {
+            this.inbox.push(message);
+            console.log(`Đã nhận tin nhắn mới: "${message}".`);
+          } else {
+            console.log("Vui lòng bật điện thoại để nhận tin nhắn.");
+          }
+        }
+
+        sendMessage(mobile, message) {
+          if (this.poweredOn) {
+            mobile.receiveMessage(message);
+            this.sentMessages.push(message);
+            console.log(`Đã gửi tin nhắn: "${message}" tới ${mobile}.`);
+          } else {
+            console.log("Vui lòng bật điện thoại để gửi tin nhắn.");
+          }
+        }
+
+        viewInbox() {
+          if (this.poweredOn) {
+            console.log("Hộp thư đến:");
+            for (let message of this.inbox) {
+              console.log(`- ${message}`);
+            }
+          } else {
+            console.log("Vui lòng bật điện thoại để xem hộp thư đến.");
+          }
+        }
+
+        viewSentMessages() {
+          if (this.poweredOn) {
+            console.log("Tin nhắn đã gửi:");
+            for (let message of this.sentMessages) {
+              console.log(`- ${message}`);
+            }
+          } else {
+            console.log("Vui lòng bật điện thoại để xem tin nhắn đã gửi.");
+          }
+        }
+
+        useFunctionality(functionality) {
+          if (this.poweredOn) {
+            switch (functionality) {
+              case "checkStatus":
+                return this.checkStatus();
+              case "turnOn":
+                return this.turnOn();
+              case "turnOff":
+                return this.turnOff();
+              case "chargeBattery":
+                return this.chargeBattery();
+              case "composeMessage":
+                return this.composeMessage();
+              case "receiveMessage":
+                return this.receiveMessage();
+              case "sendMessage":
+                return this.sendMessage();
+              case "viewInbox":
+                return this.viewInbox();
+              case "viewSentMessages":
+                return this.viewSentMessages();
+              default:
+                return "Chức năng không tồn tại.";
+            }
+          } else {
+            return "Vui lòng bật điện thoại để sử dụng chức năng.";
+          }
+        }
+      }
+      let nokia = new Mobile();
+          let iphone = new Mobile();
+
+          nokia.composeMessage("Xin chào iPhone!");
+          iphone.receiveMessage(nokia.draftMessage);
+          iphone.viewInbox();
+        
+    </script>
+  </body>
+</html>
